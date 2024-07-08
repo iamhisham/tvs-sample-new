@@ -23,6 +23,7 @@ let updatedFlag = {
 };
 countryData = [];
 
+//sample response  //TODO: This is hardcoded after api remove this
 let response = [
     {
         "_id": { "$oid": "667d30a7e510cf75f2ac2888" },
@@ -59,14 +60,15 @@ let response = [
 document.addEventListener('DOMContentLoaded', getExistingCountryAPI);
 
 function getExistingCountryAPI() {
-    fetch('YOUR_API_ENDPOINT')  // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+    fetch('YOUR_API_ENDPOINT')  // TODO: Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
         .then(response => response.json())
         .then(data => formatResponse(data))
         .catch(error => console.error('Error fetching country data:', error));
 }
 
-function formatResponse(response) {  //LIKE:   const countryData = [{ region: "Asia", countries: [ { name: "Bangladesh", flag: "https://tvsmems...." }, { name: "India", flag: "https://tvsme...." }]},];
-    const regions = {};
+function formatResponse(response) {   //LIKE:   const countryData = [{ region: "Asia", countries: [ 
+                                                                            // { name: "Bangladesh", flag: "https://tems...."  },                                                                                
+    const regions = {};                                                     // { name: "India",      flag: "https://tvsme...." }]   }         ];
 
     response.forEach(data => {
         if (!regions[data.region_name]) {
