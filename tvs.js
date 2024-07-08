@@ -60,15 +60,17 @@ let response = [
 document.addEventListener('DOMContentLoaded', getExistingCountryAPI);
 
 function getExistingCountryAPI() {
-    fetch('YOUR_API_ENDPOINT')  // TODO: Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-        .then(response => response.json())
-        .then(data => formatResponse(data))
-        .catch(error => console.error('Error fetching country data:', error));
+    // TODO: Replace 'YOUR_API_ENDPOINT' with your actual API endpoint         //uncomment the  below code when after the API is added 
+
+    // fetch('YOUR_API_ENDPOINT')  
+    //     .then(response => response.json())
+    //     .then(data => formatResponse(data))
+    //     .catch(error => console.error('Error fetching country data:', error));
+    formatResponse(response);
 }
 
-function formatResponse(response) {   //LIKE:   const countryData = [{ region: "Asia", countries: [ 
-                                                                            // { name: "Bangladesh", flag: "https://tems...."  },                                                                                
-    const regions = {};                                                     // { name: "India",      flag: "https://tvsme...." }]   }         ];
+function formatResponse(response) {   //LIKE:   const countryData = [{ region: "Asia", countries: [ { name: "Bangladesh", flag: "https://tems...."  }, { name: "India",      flag: "https://tvsme...." }]   }];     
+    const regions = {};                                                     
 
     response.forEach(data => {
         if (!regions[data.region_name]) {
