@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tvs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
+    <title>TVS</title>
+</head>
+
+<body>
+    <div class="overall-main-container">
+        <div class="row">
+            <!-- left view -->
+            <div class="left-login-view primary_bg">
+                <!-- title_box -->
+                <div class="title_box">
+                    <div class="logo-view-wrapper">
+                        <div class="inner-container">
+                            <div id="selectedCountryLeftView" class="country-selector" onclick="presentPopover(true)">
+                                <img class="country-img" src="assets/india.webp" id="countryFlag" />
+                                <p id="countryName"></p>
+                                <div class="icon-wrapper">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </div>
+                            </div>
+                            <img src="assets/tvslogo.png" alt="Logo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="left-footer-wrapper">
+                    <p>The TVS accelerator app is for authorized personnel only</p>
+                </div>
+            </div>
+            <div class="right-login-view">
+                <div class="middle-wrapper">
+                    <div id="selectPopup" class="select-popup"
+                        onclick="presentPopover(true)">
+                        <!-- flag -->
+                        <div class="flag-wrapper">
+                            <div class="border-right-line">
+                                <div class="flag-wrapper-inner" id="placeholderFlag">
+                                </div>
+                            </div>
+                        </div>
+                        <img id="selectedFlag" class="selectedflag" src="" alt="Selected Flag" />
+                        <!-- text and icon -->
+                        <div class="text-and-icon">
+                            <div class="text-wrapper">
+                                <p id="selectedCountry">Select the Country</p>
+                            </div>
+                            <div class="icon-wrapper">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- error -->
+                    <div class="error-text" id="errorText">
+                        <span>Please Select the Country</span>
+                    </div>
+                    <div class="proceed-btn">
+                        <button id="proceedButton" disabled onclick="proceedToLogin()">Proceed</button>
+                    </div>
+                </div>
+                <div class="footer-sm" style="position: absolute; bottom: 0;">
+                    <p>The TVS accelerator app is for authorized personnel only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popover for country selection -->
+    <div class="backdrop" id="backdrop"></div>
+    <div id="countryPopover" class="popover">
+        <i style="padding: 28px; position: absolute; color: #9a8ba978;" class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="popover-search" id="searchCountry" placeholder="Search the Country" oninput="filterSearch(event)">
+        <div id="noResultFound" style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style=" display: flex; justify-content: center;">
+                <p>No result found</p>
+            </div>
+        </div>
+        <div id="countryList">
+            <!-- Country list will be populated here -->  
+        </div>
+        <div class="popover-footer">
+            <button onclick="dismissPopover(false)">Cancel</button>
+            <button onclick="dismissPopover(true)">Apply</button>
+        </div>
+    </div>
+    <script src="tvs.js"></script>
+</body>
+
+</html>
